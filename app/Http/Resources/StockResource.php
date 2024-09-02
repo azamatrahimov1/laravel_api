@@ -12,6 +12,7 @@ class StockResource extends JsonResource
     public function toArray(Request $request): array
     {
         $result = [
+            'stock_id' => $this->id,
             'quantity' => $this->quantity,
         ];
 
@@ -23,6 +24,9 @@ class StockResource extends JsonResource
     {
         $attributes = json_decode($this->attributes);
         foreach ($attributes as $stockAttribute) {
+            /*
+             * TODO cache it
+             */
 
             $attribute = Attribute::query()->find($stockAttribute->attribute_id);
             $value = Value::query()->find($stockAttribute->value_id);
