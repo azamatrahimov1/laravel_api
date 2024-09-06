@@ -17,7 +17,8 @@ class Order extends Model
         'payment_type_id',
         'sum',
         'products',
-        'address'
+        'address',
+        'status_id',
     ];
 
     protected $casts = [
@@ -38,5 +39,10 @@ class Order extends Model
     public function deliveryMethod(): BelongsTo
     {
         return $this->belongsTo(DeliveryMethod::class);
+    }
+
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(Status::class);
     }
 }
