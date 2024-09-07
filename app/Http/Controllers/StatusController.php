@@ -16,7 +16,7 @@ class StatusController extends Controller
     public function index(Request $request): Collection
     {
         if ($request->has('for')){
-            return Status::where('for', $request['for'])->get();
+            return Status::query()->where('for', $request['for'])->get();
         }
 
         return Status::all();

@@ -8,6 +8,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductReviewController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\StatusOrderController;
 use App\Http\Controllers\UserAddressController;
@@ -31,6 +33,8 @@ Route::middleware('auth:sanctum')->group(function () {
         'delivery-methods' => DeliveryMethodController::class,
         'payment-types' => PaymentTypeController::class,
         'user-address' => UserAddressController::class,
-        'user-payment-cards' => UserPaymentCardController::class
+        'user-payment-cards' => UserPaymentCardController::class,
+        'reviews' => ReviewController::class,
+        'products.reviews' => ProductReviewController::class,
     ]);
 });

@@ -14,7 +14,7 @@ class StatusOrderController extends Controller
 
     public function store(Status $status, ChangeOrderStatusRequest $request): JsonResponse
     {
-        $order = Order::findOrFail($request['order_id']);
+        $order = Order::query()->findOrFail($request['order_id']);
         $order->update(['status_id' => $status->id]);
 
         return $this->yes('Status changed');
